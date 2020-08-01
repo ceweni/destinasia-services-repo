@@ -109,7 +109,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       </repository>
       <repository>
           <id>jboss-fs-repository</id>
-  	  <url>https://maven.repository.redhat.com/nexus/content/repositories/fs-releases/</url>
+<!--   	  <url>https://maven.repository.redhat.com/nexus/content/repositories/fs-releases/</url> -->
+	     <url>https://repository.jboss.org/nexus/content/groups/ea</url>
           <releases>
             <enabled>true</enabled>
           </releases>
@@ -136,7 +137,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 -->
         <pluginRepository>
         <id>jboss-fs-release-plugin-repository</id>
-        <url>https://maven.repository.redhat.com/nexus/content/repositories/fs-releases/</url>
+<!--         <url>https://maven.repository.redhat.com/nexus/content/repositories/fs-releases/</url> -->
+		<url>https://repository.jboss.org/nexus/content/groups/ea</url>
         <releases>
           <enabled>true</enabled>
         </releases>
