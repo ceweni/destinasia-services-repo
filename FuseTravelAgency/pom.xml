@@ -7,7 +7,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <name>FuseTravelAgency</name>
     <url>http://www.myorganization.org</url>
     <properties>
-        <camel-version>2.21.0.fuse-760027-redhat-00001</camel-version>
+        <camel-version>2.15.1.redhat-621084</camel-version>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
@@ -15,17 +15,17 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-core</artifactId>
-            <version>2.21.0.fuse-760027-redhat-00001</version>
+            <version>2.15.1.redhat-621084</version>
         </dependency>
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-spring</artifactId>
-            <version>2.21.0.fuse-760027-redhat-00001</version>
+            <version>2.15.1.redhat-621084</version>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
-            <version>1.7.30</version>
+            <version>1.7.10</version>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -40,28 +40,28 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-test-spring</artifactId>
-            <version>2.21.0.fuse-760027-redhat-00001</version>
+            <version>2.15.1.redhat-621084</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-netty4-http</artifactId>
-            <version>2.21.0.fuse-760027-redhat-00001</version>
+            <version>${camel-version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-jsonpath</artifactId>
-            <version>2.21.0.fuse-760027-redhat-00001</version>
+            <version>${camel-version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-http4</artifactId>
-            <version>2.21.0.fuse-760027-redhat-00001</version>
+            <version>${camel-version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-gson</artifactId>
-            <version>2.21.0.fuse-760027-redhat-00001</version>
+            <version>${camel-version}</version>
         </dependency>
     </dependencies>
     <repositories>
@@ -183,15 +183,15 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         <plugins>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.0</version>
+                <version>2.5.1</version>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <source>1.7</source>
+                    <target>1.7</target>
                 </configuration>
             </plugin>
             <plugin>
                 <artifactId>maven-resources-plugin</artifactId>
-                <version>3.0.2</version>
+                <version>2.6</version>
                 <configuration>
                     <encoding>UTF-8</encoding>
                 </configuration>
@@ -218,17 +218,32 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
                     </instructions>
                 </configuration>
             </plugin>
-           <plugin>
-		<groupId>io.fabric8</groupId>
-		<artifactId>fabric8-maven-plugin</artifactId>
-		<version>3.5.33.fuse-760025-redhat-00001</version>
-</plugin>
-            
+            <plugin>
+                <groupId>org.apache.camel</groupId>
+                <artifactId>camel-maven-plugin</artifactId>
+                <version>2.15.1.redhat-621084</version>
+            </plugin>
+                            <plugin>
+                    <groupId>io.fabric8</groupId>
+                    <artifactId>hawt-app-maven-plugin</artifactId>
+                    <version>2.2.0.redhat-079</version>
+                    <!--<version>2.2.170.redhat-000004</version>-->
+                    <executions>
+                        <execution>
+                            <id>hawt-app</id>
+                            <goals>
+                                <goal>build</goal>
+                            </goals>
+                            <configuration>
+                                <javaMainClass>org.apache.camel.spring.Main</javaMainClass>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
         </plugins>
         <pluginManagement>
             <plugins>
 <!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
-                
                 <plugin>
                     <groupId>org.eclipse.m2e</groupId>
                     <artifactId>lifecycle-mapping</artifactId>
