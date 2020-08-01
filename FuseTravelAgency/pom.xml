@@ -46,17 +46,17 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-netty4-http</artifactId>
-            <version>${camel-version}</version>
+            <version>2.21.0.fuse-760027-redhat-00001</version>
         </dependency>
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-jsonpath</artifactId>
-            <version>${camel-version}</version>
+            <version>2.21.0.fuse-760027-redhat-00001</version>
         </dependency>
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-http4</artifactId>
-            <version>${camel-version}</version>
+            <version>2.21.0.fuse-760027-redhat-00001</version>
         </dependency>
         <dependency>
             <groupId>org.apache.camel</groupId>
