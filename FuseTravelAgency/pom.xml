@@ -7,20 +7,21 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <name>FuseTravelAgency</name>
     <url>http://www.myorganization.org</url>
     <properties>
-        <camel-version>2.15.1.redhat-621084</camel-version>
+        <camel.version>2.17.0.redhat-630446</camel.version>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <fabric8.version>2.2.0.redhat-079</fabric8.version>
     </properties>
     <dependencies>
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-core</artifactId>
-            <version>2.15.1.redhat-621084</version>
+            <version>${camel.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-spring</artifactId>
-            <version>2.15.1.redhat-621084</version>
+            <version>${camel.version}</version>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -40,34 +41,34 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-test-spring</artifactId>
-            <version>2.15.1.redhat-621084</version>
+            <version>${camel.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.apache.camel</groupId>
-            <artifactId>camel-netty4-http</artifactId>
-            <version>${camel-version}</version>
+            <artifactId>camel-netty-http</artifactId>
+            <version>${camel.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-jsonpath</artifactId>
-            <version>${camel-version}</version>
+            <version>${camel.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.camel</groupId>
-            <artifactId>camel-http4</artifactId>
-            <version>${camel-version}</version>
+            <artifactId>camel-http</artifactId>
+            <version>${camel.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-gson</artifactId>
-            <version>${camel-version}</version>
+            <version>${camel.version}</version>
         </dependency>
     </dependencies>
     <repositories>
       <repository>
           <id>jboss-ga-repository</id>
-          <url>https://maven.repository.redhat.com/ga/all</url>
+          <url>https://maven.repository.redhat.com/ga</url>
           <releases>
             <enabled>true</enabled>
           </releases>
@@ -85,18 +86,16 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
             <enabled>true</enabled>
           </snapshots>
       </repository>
-<repository>
-    <id>jboss-earlyaccess-repository</id>
-    <url>https://maven.repository.redhat.com/earlyaccess/all/</url>
-    <releases>
-      <enabled>true</enabled>
-    </releases>
-    <snapshots>
-      <enabled>true</enabled>
-    </snapshots>
-</repository>
-
-        
+      <repository>
+          <id>jboss-earlyaccess-repository</id>
+          <url>https://maven.repository.redhat.com/earlyaccess/all/</url>
+          <releases>
+            <enabled>true</enabled>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+      </repository>  
       <repository>
           <id>jboss-techpreview-repository</id>
           <url>https://maven.repository.redhat.com/techpreview/all</url>          
@@ -109,15 +108,18 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       </repository>
       <repository>
           <id>jboss-fs-repository</id>
-<!--   	  <url>https://maven.repository.redhat.com/nexus/content/repositories/fs-releases/</url> -->
-	     <url>https://repository.jboss.org/nexus/content/groups/ea</url>
+  	  <!-- <url>https://maven.repository.redhat.com/nexus/content/repositories/fs-releases/</url> -->
+      <!-- <url>https://repository.jboss.org/nexus/content/repositories/fs-releases/</url> -->
+      <!-- <url>https://repo.fusesource.com/nexus/content/repositories/releases</url> -->
+      <!-- <url>https://repository.jboss.org/nexus/content/repositories/ea/</url> -->
+      <url>https://repo.fusesource.com/nexus/content/groups/public</url>
           <releases>
             <enabled>true</enabled>
           </releases>
           <snapshots>
             <enabled>true</enabled>
           </snapshots>
-	</repository>
+	    </repository>
     </repositories>
 
     <pluginRepositories>
@@ -135,10 +137,14 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       </snapshots>
      </pluginRepository>
 -->
+
         <pluginRepository>
         <id>jboss-fs-release-plugin-repository</id>
-<!--         <url>https://maven.repository.redhat.com/nexus/content/repositories/fs-releases/</url> -->
-		<url>https://repository.jboss.org/nexus/content/groups/ea</url>
+        <!-- <url>https://maven.repository.redhat.com/nexus/content/repositories/fs-releases/</url> -->
+        <!-- <url>https://repository.jboss.org/nexus/content/repositories/fs-releases/</url> -->
+        <!-- <url>https://repo.fusesource.com/nexus/content/repositories/releases</url> -->
+        <!-- <url>https://repository.jboss.org/nexus/content/repositories/ea/</url> -->
+         <url>https://repo.fusesource.com/nexus/content/groups/public</url>
         <releases>
           <enabled>true</enabled>
         </releases>
@@ -223,25 +229,46 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
             <plugin>
                 <groupId>org.apache.camel</groupId>
                 <artifactId>camel-maven-plugin</artifactId>
-                <version>2.15.1.redhat-621084</version>
+                <version>${camel.version}</version>
             </plugin>
-                            <plugin>
-                    <groupId>io.fabric8</groupId>
-                    <artifactId>hawt-app-maven-plugin</artifactId>
-                    <version>2.2.0.redhat-079</version>
-                    <!--<version>2.2.170.redhat-000004</version>-->
-                    <executions>
-                        <execution>
-                            <id>hawt-app</id>
-                            <goals>
-                                <goal>build</goal>
-                            </goals>
-                            <configuration>
-                                <javaMainClass>org.apache.camel.spring.Main</javaMainClass>
-                            </configuration>
-                        </execution>
-                    </executions>
-                </plugin>
+            <plugin>
+              <groupId>io.fabric8</groupId>
+              <artifactId>fabric8-maven-plugin</artifactId>
+              <version>${fabric8.version}</version>
+              <executions>
+                  <execution>
+                    <id>json</id>
+                    <phase>generate-resources</phase>
+                    <goals>
+                      <goal>json</goal>
+                    </goals>
+                  </execution>
+                  <execution>
+                    <id>attach</id>
+                    <phase>package</phase>
+                    <goals>
+                      <goal>attach</goal>
+                    </goals>
+                  </execution>
+              </executions>
+			      </plugin>
+            <plugin>
+                <groupId>io.fabric8</groupId>
+                <artifactId>hawt-app-maven-plugin</artifactId>
+                <version>${fabric8.version}</version>
+                <!-- <version>2.2.170.redhat-000004</version> -->
+                <executions>
+                    <execution>
+                        <id>hawt-app</id>
+                        <goals>
+                            <goal>build</goal>
+                        </goals>
+                        <configuration>
+                            <javaMainClass>org.apache.camel.spring.Main</javaMainClass>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
         <pluginManagement>
             <plugins>
